@@ -1,0 +1,16 @@
+[Unit]
+Description=Whisper Transcription Server (shared faster-whisper large-v3-turbo)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/b3low-z3r0/Documents/Knowledge/.rag/venv/bin/python3 /home/b3low-z3r0/Documents/Knowledge/.rag/whisper/whisper_server.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=whisper-server
+
+[Install]
+WantedBy=default.target
